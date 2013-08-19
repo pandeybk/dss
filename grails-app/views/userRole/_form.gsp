@@ -1,4 +1,4 @@
-<%@ page import="DeewalkSalarySystem.UserRole" %>
+<%@ page import="com.dss.UserRole" %>
 
 
 
@@ -7,7 +7,7 @@
 		<g:message code="userRole.role.label" default="Role" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="role" name="role.id" from="${DeewalkSalarySystem.Role.list()}" optionKey="id" required="" value="${userRoleInstance?.role?.id}" class="many-to-one"/>
+	<g:select id="role" name="role.id" from="${com.dss.Role.list()}" optionKey="id" required="" value="${userRoleInstance?.role?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userRoleInstance, field: 'user', 'error')} required">
@@ -15,6 +15,6 @@
 		<g:message code="userRole.user.label" default="User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="user" name="user.id" from="${DeewalkSalarySystem.User.list()}" optionKey="id" required="" value="${userRoleInstance?.user?.id}" class="many-to-one"/>
+	<g:select id="user" name="user.id" from="${com.dss.User.list()}" optionKey="id" required="" value="${userRoleInstance?.user?.id}" class="many-to-one"/>
 </div>
 

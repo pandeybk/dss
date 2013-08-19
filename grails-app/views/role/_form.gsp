@@ -1,4 +1,4 @@
-<%@ page import="DeewalkSalarySystem.Role" %>
+<%@ page import="com.dss.Role" %>
 
 
 
@@ -23,6 +23,6 @@
 		<g:message code="role.userRole.label" default="User Role" />
 		
 	</label>
-	<g:select id="userRole" name="userRole.id" from="${DeewalkSalarySystem.UserRole.list()}" optionKey="id" value="${roleInstance?.userRole?.id}" class="many-to-one" noSelection="['null': '']"/>
+	<g:select id="userRole" name="userRole.id" from="${com.dss.UserRole.list()}" optionKey="id" value="${roleInstance?.userRole?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 

@@ -1,5 +1,5 @@
 
-<%@ page import="DeewalkSalarySystem.Category" %>
+<%@ page import="com.dss.Category" %>
 <!DOCTYPE html>
 <html>
 	<head>

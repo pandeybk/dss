@@ -1,5 +1,5 @@
 
-<%@ page import="DeewalkSalarySystem.TaxBracket" %>
+<%@ page import="com.dss.TaxBracket" %>
 <!DOCTYPE html>
 <html>
 	<head>

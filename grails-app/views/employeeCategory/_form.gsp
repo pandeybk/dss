@@ -1,4 +1,4 @@
-<%@ page import="dss.EmployeeCategory" %>
+<%@ page import="com.dss.EmployeeCategory" %>
 
 
 
@@ -15,7 +15,7 @@
 		<g:message code="employeeCategory.category.label" default="Category" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="category" name="category.id" from="${DeewalkSalarySystem.Category.list()}" optionKey="id" required="" value="${employeeCategoryInstance?.category?.id}" class="many-to-one"/>
+	<g:select id="category" name="category.id" from="${com.dss.Category.list()}" optionKey="id" required="" value="${employeeCategoryInstance?.category?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: employeeCategoryInstance, field: 'employee', 'error')} required">
@@ -23,7 +23,7 @@
 		<g:message code="employeeCategory.employee.label" default="Employee" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="employee" name="employee.id" from="${DeewalkSalarySystem.Employee.list()}" optionKey="id" required="" value="${employeeCategoryInstance?.employee?.id}" class="many-to-one"/>
+	<g:select id="employee" name="employee.id" from="${com.dss.Employee.list()}" optionKey="id" required="" value="${employeeCategoryInstance?.employee?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: employeeCategoryInstance, field: 'percentage', 'error')} required">

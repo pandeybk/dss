@@ -1,4 +1,4 @@
-<%@ page import="DeewalkSalarySystem.SalaryTable" %>
+<%@ page import="com.dss.SalaryTable" %>
 
 
 
@@ -31,7 +31,7 @@
 		<g:message code="salaryTable.employee.label" default="Employee" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="employee" name="employee.id" from="${DeewalkSalarySystem.Employee.list()}" optionKey="id" required="" value="${salaryTableInstance?.employee?.id}" class="many-to-one"/>
+	<g:select id="employee" name="employee.id" from="${com.dss.Employee.list()}" optionKey="id" required="" value="${salaryTableInstance?.employee?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: salaryTableInstance, field: 'employeeId', 'error')} required">

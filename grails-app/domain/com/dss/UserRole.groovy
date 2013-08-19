@@ -1,4 +1,4 @@
-package dss
+package com.dss
 
 class UserRole {
 

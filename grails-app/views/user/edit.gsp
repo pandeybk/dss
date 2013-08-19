@@ -1,4 +1,4 @@
-<%@ page import="DeewalkSalarySystem.User" %>
+<%@ page import="com.dss.User" %>
 <!DOCTYPE html>
 <html>
 	<head>

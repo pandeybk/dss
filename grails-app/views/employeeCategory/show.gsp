@@ -1,5 +1,5 @@
 
-<%@ page import="dss.EmployeeCategory" %>
+<%@ page import="com.dss.EmployeeCategory" %>
 <!DOCTYPE html>
 <html>
 	<head>

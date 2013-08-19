@@ -1,6 +1,7 @@
-package DeewalkSalarySystem
+package com.dss
 
-import dss.EmployeeCategory
+
+
 import org.junit.*
 import grails.test.mixin.*
 

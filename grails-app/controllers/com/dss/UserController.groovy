@@ -1,6 +1,5 @@
-package DeewalkSalarySystem
+package com.dss
 
-import dss.User
 import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {

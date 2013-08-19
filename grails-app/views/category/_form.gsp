@@ -1,4 +1,4 @@
-<%@ page import="DeewalkSalarySystem.Category" %>
+<%@ page import="com.dss.Category" %>
 
 
 

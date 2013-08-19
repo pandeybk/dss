@@ -1,4 +1,4 @@
-<%@ page import="dss.User" %>
+<%@ page import="com.dss.User" %>
 <!DOCTYPE html>
 <html>
 	<head>
