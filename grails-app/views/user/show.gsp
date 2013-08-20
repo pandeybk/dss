@@ -41,40 +41,38 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.employee}">
+				<g:if test="${userInstance?.accountExpired}">
 				<li class="fieldcontain">
-					<span id="employee-label" class="property-label"><g:message code="user.employee.label" default="Employee" /></span>
+					<span id="accountExpired-label" class="property-label"><g:message code="user.accountExpired.label" default="Account Expired" /></span>
 					
-						<span class="property-value" aria-labelledby="employee-label"><g:link controller="employee" action="show" id="${userInstance?.employee?.id}">${userInstance?.employee?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="accountExpired-label"><g:formatBoolean boolean="${userInstance?.accountExpired}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.employeeId}">
+				<g:if test="${userInstance?.accountLocked}">
 				<li class="fieldcontain">
-					<span id="employeeId-label" class="property-label"><g:message code="user.employeeId.label" default="Employee Id" /></span>
+					<span id="accountLocked-label" class="property-label"><g:message code="user.accountLocked.label" default="Account Locked" /></span>
 					
-						<span class="property-value" aria-labelledby="employeeId-label"><g:fieldValue bean="${userInstance}" field="employeeId"/></span>
+						<span class="property-value" aria-labelledby="accountLocked-label"><g:formatBoolean boolean="${userInstance?.accountLocked}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.userRoles}">
+				<g:if test="${userInstance?.enabled}">
 				<li class="fieldcontain">
-					<span id="userRoles-label" class="property-label"><g:message code="user.userRoles.label" default="User Roles" /></span>
+					<span id="enabled-label" class="property-label"><g:message code="user.enabled.label" default="Enabled" /></span>
 					
-						<g:each in="${userInstance.userRoles}" var="u">
-						<span class="property-value" aria-labelledby="userRoles-label"><g:link controller="userRole" action="show" id="${u.id}">${u?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="enabled-label"><g:formatBoolean boolean="${userInstance?.enabled}" /></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${userInstance?.userStatus}">
+				<g:if test="${userInstance?.passwordExpired}">
 				<li class="fieldcontain">
-					<span id="userStatus-label" class="property-label"><g:message code="user.userStatus.label" default="User Status" /></span>
+					<span id="passwordExpired-label" class="property-label"><g:message code="user.passwordExpired.label" default="Password Expired" /></span>
 					
-						<span class="property-value" aria-labelledby="userStatus-label"><g:formatBoolean boolean="${userInstance?.userStatus}" /></span>
+						<span class="property-value" aria-labelledby="passwordExpired-label"><g:formatBoolean boolean="${userInstance?.passwordExpired}" /></span>
 					
 				</li>
 				</g:if>

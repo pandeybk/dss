@@ -41,15 +41,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${roleInstance?.userRole}">
-				<li class="fieldcontain">
-					<span id="userRole-label" class="property-label"><g:message code="role.userRole.label" default="User Role" /></span>
-					
-						<span class="property-value" aria-labelledby="userRole-label"><g:link controller="userRole" action="show" id="${roleInstance?.userRole?.id}">${roleInstance?.userRole?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

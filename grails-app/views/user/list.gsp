@@ -28,11 +28,13 @@
 					
 						<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Password')}" />
 					
-						<th><g:message code="user.employee.label" default="Employee" /></th>
+						<g:sortableColumn property="accountExpired" title="${message(code: 'user.accountExpired.label', default: 'Account Expired')}" />
 					
-						<g:sortableColumn property="employeeId" title="${message(code: 'user.employeeId.label', default: 'Employee Id')}" />
+						<g:sortableColumn property="accountLocked" title="${message(code: 'user.accountLocked.label', default: 'Account Locked')}" />
 					
-						<g:sortableColumn property="userStatus" title="${message(code: 'user.userStatus.label', default: 'User Status')}" />
+						<g:sortableColumn property="enabled" title="${message(code: 'user.enabled.label', default: 'Enabled')}" />
+					
+						<g:sortableColumn property="passwordExpired" title="${message(code: 'user.passwordExpired.label', default: 'Password Expired')}" />
 					
 					</tr>
 				</thead>
@@ -44,11 +46,13 @@
 					
 						<td>${fieldValue(bean: userInstance, field: "password")}</td>
 					
-						<td>${fieldValue(bean: userInstance, field: "employee")}</td>
+						<td><g:formatBoolean boolean="${userInstance.accountExpired}" /></td>
 					
-						<td>${fieldValue(bean: userInstance, field: "employeeId")}</td>
+						<td><g:formatBoolean boolean="${userInstance.accountLocked}" /></td>
 					
-						<td><g:formatBoolean boolean="${userInstance.userStatus}" /></td>
+						<td><g:formatBoolean boolean="${userInstance.enabled}" /></td>
+					
+						<td><g:formatBoolean boolean="${userInstance.passwordExpired}" /></td>
 					
 					</tr>
 				</g:each>

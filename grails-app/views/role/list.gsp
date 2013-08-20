@@ -28,8 +28,6 @@
 					
 						<g:sortableColumn property="userRoleId" title="${message(code: 'role.userRoleId.label', default: 'User Role Id')}" />
 					
-						<th><g:message code="role.userRole.label" default="User Role" /></th>
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -39,8 +37,6 @@
 						<td><g:link action="show" id="${roleInstance.id}">${fieldValue(bean: roleInstance, field: "roleName")}</g:link></td>
 					
 						<td>${fieldValue(bean: roleInstance, field: "userRoleId")}</td>
-					
-						<td>${fieldValue(bean: roleInstance, field: "userRole")}</td>
 					
 					</tr>
 				</g:each>

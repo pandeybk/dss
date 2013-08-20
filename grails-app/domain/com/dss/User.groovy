@@ -2,24 +2,41 @@ package com.dss
 
 class User {
 
+	transient springSecurityService
+
 	String username
 	String password
-	Boolean userStatus
-	Long employeeId
-	Employee employee
-
-	static hasMany = [userRoles: UserRole]
-	static belongsTo = [Employee]
-
-	static mapping = {
-		id column: "user_id"
-		version false
-        employee insertable: false
-        employee updateable: false
-	}
+	boolean enabled
+	boolean accountExpired
+	boolean accountLocked
+	boolean passwordExpired
+    Employee employee
 
 	static constraints = {
-		username maxSize: 45
-		password maxSize: 45
+		username blank: false, unique: true
+		password blank: false
+	}
+
+	static mapping = {
+        id column: "user_id"
+		password column: '`password`'
+	}
+
+	Set<Role> getAuthorities() {
+		UserRole.findAllByUser(this).collect { it.role } as Set
+	}
+
+	def beforeInsert() {
+		encodePassword()
+	}
+
+	def beforeUpdate() {
+		if (isDirty('password')) {
+			encodePassword()
+		}
+	}
+
+	protected void encodePassword() {
+		password = springSecurityService.encodePassword(password)
 	}
 }
