@@ -10,7 +10,7 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-    Employee employee
+    //Employee employee
 
 	static constraints = {
 		username blank: false, unique: true
