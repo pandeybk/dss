@@ -120,15 +120,22 @@
                         <td><g:formatBoolean boolean="${userInstance.passwordExpired}"/></td>
 
                         <td>
+                            <g:link class="btn btn-mini" controller="user" action="edit" id="${userInstance?.id}"><i
+                                    class="icon-edit"></i></g:link>
                             <g:link class="btn btn-mini" name="enabled" controller="user" action="enabledUser"
                                     id="${userInstance?.id}"><i class="icon-share"></i></g:link>
-                            <button class="btn btn-mini" formaction="update"><i class="icon-check"></i></button>
+                        %{--<button class="btn btn-mini" formaction="update"><i class="icon-check"></i></button>--}%
                             <g:link class="btn btn-mini" name="disabled" controller="user" action="disableUser"
                                     id="${userInstance?.id}"><i class="icon-minus"></i></g:link>
-                            <button class="btn btn-mini"><i class="icon-edit"></i></button>
-                            <button class="btn btn-mini" formaction="delete" formnovalidate=""
-                                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"><i
-                                    class="icon-remove"></i></button>
+                            <g:form>
+                                <fieldset class="buttons">
+                                    <g:hiddenField name="id" value="${userInstance?.id}"/>
+                                    <g:actionSubmit class="delete"
+                                                    action="delete"
+                                                    value="${message(code: 'default.button.delete.label', default: 'Delete')}"
+                                                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
+                                </fieldset>
+                            </g:form>
                         </td>
                     </tr>
                 </g:each>

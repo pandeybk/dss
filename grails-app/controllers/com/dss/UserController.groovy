@@ -83,6 +83,7 @@ class UserController {
 
     def delete(Long id) {
         def userInstance = User.get(id)
+        def userRoleInstance = UserRole.findAllByUser(userInstance)
         if (!userInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
             redirect(action: "list")
@@ -90,15 +91,17 @@ class UserController {
         }
 
         try {
+            userRoleInstance?.each {it?.delete(flush: true)}
             userInstance.delete(flush: true)
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
-            redirect(action: "show", id: id)
+            redirect(action: "list")
         }
     }
+
     def enabledUser() {
         def userInstance = User.findById(params?.id)
         if (!userInstance) {
