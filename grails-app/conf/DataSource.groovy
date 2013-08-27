@@ -15,7 +15,7 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost:3306/dwsalarysystem"
             username = "root"
-            password = "Rest1.0%123"
+            password = "root"
         }
         hibernate {
             show_sql = true

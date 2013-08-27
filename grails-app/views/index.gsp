@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
+		%{--<meta name="layout" content="main"/>--}%
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 		<title>Welcome to Grails</title>
 		<style type="text/css" media="screen">
 			#status {

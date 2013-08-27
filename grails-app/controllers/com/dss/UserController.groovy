@@ -99,4 +99,39 @@ class UserController {
             redirect(action: "show", id: id)
         }
     }
+    def enabledUser() {
+        def userInstance = User.findById(params?.id)
+        if (!userInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), userInstance])
+            redirect(action: "list")
+            return
+        }
+        try {
+            userInstance.enabled = true
+            userInstance.save(flush: true)
+            flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance])
+        }
+        catch (Exception e) {
+            flash.message = message(message: "Unexpected error occurred. Please try again later!!!")
+        }
+        redirect(action: "list")
+    }
+
+    def disableUser() {
+        def userInstance = User.findById(params?.id)
+        if (!userInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), userInstance])
+            redirect(action: "list")
+            return
+        }
+        try {
+            userInstance.enabled = false
+            userInstance.save(flush: true)
+            flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), userInstance])
+        }
+        catch (Exception e) {
+            flash.message = message(message: "Unexpected error occurred. Please try again later!!!")
+        }
+        redirect(action: "list")
+    }
 }
