@@ -4,6 +4,7 @@ class EmployeeCategory {
 
 	Long amount
 	Integer percentage
+    Date entryDate
 	Employee employee
 	Category category
 

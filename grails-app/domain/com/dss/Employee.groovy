@@ -19,7 +19,7 @@ class Employee {
 	String citizenshipNo
 	String bankAccountNo
 	String panNo
-	Long basicSalary
+	Boolean isActive
 
 	static hasMany = [employeeCategories: EmployeeCategory,
 	                  salaryTables: SalaryTable,
@@ -28,22 +28,27 @@ class Employee {
 	static mapping = {
 		id column: "emp_id"
 		version false
+        isActive sqlType: 'bool', length: 1, defaultValue: 'true'
+        version false
 	}
 
 	static constraints = {
+        id nullable: false
 		firstName maxSize: 45
 		middleName nullable: true, maxSize: 45
 		lastName maxSize: 45
-		email maxSize: 100
-		maritalStatus maxSize: 45
+		email nullable: false, blank: false, maxSize: 100, email: true, unique: true
+		maritalStatus maxSize: 1, inList: ['S', 'M']
 		designation maxSize: 45
-		phoneMobile maxSize: 45
-		phoneHouse nullable: true, maxSize: 45
-		personalMail maxSize: 100
+		phoneMobile maxSize: 25
+		phoneHouse nullable: true, maxSize: 25
+		personalMail maxSize: 100, email: true, nullable: true
 		addressTemporary nullable: true, maxSize: 200
 		addressPermanent maxSize: 200
-		citizenshipNo maxSize: 45
-		bankAccountNo maxSize: 45
+		citizenshipNo maxSize: 25
+		bankAccountNo maxSize: 30
 		panNo maxSize: 45
+        termedDate nullable: true
+        addressTemporary nullable: true
 	}
 }

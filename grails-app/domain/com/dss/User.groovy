@@ -10,16 +10,28 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+    //BigInteger employeeId
     //Employee employee
 
+    static belongsTo = [employee: Employee]
+
 	static constraints = {
-		username blank: false, unique: true
-		password blank: false
+//		password blank: false, validator: {
+//            val, obj->
+//                if (val?.equalsIgnoreCase(employee.firstName) || val?.equalsIgnoreCase(employee.lastName) || val?.equalsIgnoreCase(employee.email))
+//                {
+//                    return false;
+//                }
+//        }
 	}
 
 	static mapping = {
         id column: "user_id"
 		password column: '`password`'
+        username sqlType: 'varchar(100)', length: 100
+        password sqlType: 'varchar(64)', length: 64
+        //employee insertable: false, updateable: false
+        version false
 	}
 
 	Set<Role> getAuthorities() {
