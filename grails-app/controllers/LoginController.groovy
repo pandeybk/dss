@@ -1,4 +1,9 @@
+import com.dss.User
+import com.dss.UserRecovery
+import com.dss.UserService
 import grails.converters.JSON
+import grails.plugin.mail.MailService
+import org.apache.commons.lang.RandomStringUtils
 
 import javax.servlet.http.HttpServletResponse
 
@@ -23,6 +28,8 @@ class LoginController {
      * Dependency injection for the springSecurityService.
      */
     def springSecurityService
+
+    def mailService;
 
     /**
      * Default action; redirects to 'defaultTargetUrl' if logged in, /login/auth otherwise.
@@ -124,5 +131,36 @@ class LoginController {
      */
     def ajaxDenied = {
         render([error: 'access denied'] as JSON)
+    }
+
+    def mailTest()
+    {
+        mailService.sendMail
+        {
+            to "sdacharya@system.deerwalk.com", "bpandey@deerwalk.com"
+            subject "Hello Broda"
+            body 'This is some awesome stuff. Reply asap !!!'
+        }
+    }
+
+    def forgotPassword()
+    {
+        def user = User.findByUsername(params?.email);
+        if (!user)
+        {
+            flash.message = message(code: 'default.not.found.message')
+            redirect(action: "");
+        }
+
+        try
+        {
+            UserService userService = new UserService();
+            userService.forgotPassword(user.username, grailsApplication.config.grails.serverURL);
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }

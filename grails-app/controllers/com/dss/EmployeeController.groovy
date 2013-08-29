@@ -99,4 +99,36 @@ class EmployeeController {
             redirect(action: "show", id: id)
         }
     }
+
+    def lock(Long id)
+    {
+        println ">>>" + id + "<<<";
+        try {
+            EmployeeService es = new EmployeeService();
+            es.lockEmploye(id);
+            redirect(action: "list")
+        }
+        catch (Exception e)
+        {
+            log.error('Could not lock employee', e);
+        }
+
+    }
+
+    def unlock(Long id)
+    {
+        println ">>>" + id + "<<<";
+        try {
+            EmployeeService es = new EmployeeService();
+            es.unlockEmploye(id);
+            redirect(action: 'list')
+        }
+        catch (Exception e)
+        {
+            log.error('Could not unlock employee', e);
+        }
+
+    }
+
+
 }
