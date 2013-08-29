@@ -22,13 +22,13 @@ class Employee {
 	Boolean isActive
 
 	static hasMany = [employeeCategories: EmployeeCategory,
-	                  salaryTables: SalaryTable,
-	                  users: User]
+	                  salaryTables: SalaryTable]
+//	                  users: User]
 
 	static mapping = {
 		id column: "emp_id"
 		version false
-        isActive sqlType: 'bool', length: 1, defaultValue: 'true'
+        isActive sqlType: 'tinyint(1)', length: 1, defaultValue: 'true'
         version false
 	}
 

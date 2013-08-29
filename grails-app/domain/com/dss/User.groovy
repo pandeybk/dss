@@ -10,10 +10,9 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-    //BigInteger employeeId
-    //Employee employee
+    boolean isFirstLogin
 
-    static belongsTo = [employee: Employee]
+    //static belongsTo = [employee: Employee]
 
 	static constraints = {
 //		password blank: false, validator: {
@@ -30,8 +29,8 @@ class User {
 		password column: '`password`'
         username sqlType: 'varchar(100)', length: 100
         password sqlType: 'varchar(64)', length: 64
-        //employee insertable: false, updateable: false
         version false
+        isFirstLogin defaultValue: 1, sqlType: 'tinyint(1)'
 	}
 
 	Set<Role> getAuthorities() {
