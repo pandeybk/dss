@@ -2,7 +2,8 @@ package com.dss
 
 class EmployeeService {
 
-    def lockEmploye(BigInteger empId) {
+    def lockEmploye(BigInteger empId)
+    {
         Employee employee = Employee.findById(empId)
         if (employee == null)
         {
@@ -13,7 +14,8 @@ class EmployeeService {
         employee.save();
     }
 
-    def unlockEmploye(BigInteger empId) {
+    def unlockEmploye(BigInteger empId)
+    {
         Employee employee = Employee.findById(empId)
         if (employee == null)
         {
@@ -21,6 +23,32 @@ class EmployeeService {
             return ;
         }
         employee.isActive = true;
+        employee.save();
+    }
+
+    def termEmployee(BigInteger empId, Date termDate)
+    {
+        Employee employee = Employee.findById(empId);
+        if (employee == null)
+        {
+            flash.termmsg = "Employee not found";
+            return;
+        }
+
+        employee.termedDate = termDate;
+        employee.save();
+    }
+
+    def untermEmployee(BigInteger empId)
+    {
+        Employee employee = Employee.findById(empId);
+        if (employee == null)
+        {
+            flash.termmsg = "Employee not found";
+            return;
+        }
+
+        employee.termedDate = null;
         employee.save();
     }
 }
