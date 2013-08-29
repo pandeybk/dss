@@ -64,10 +64,12 @@ grails.plugin.reveng.packageName = 'com.dss'
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.serverURL = "http://localhost:8080/DeewalkSalarySystem"
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://localhost:8080/DeewalkSalarySystem"
     }
 }
 
@@ -98,3 +100,32 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.dss.UserR
 grails.plugins.springsecurity.authority.className = 'com.dss.Role'
 grails.plugins.springsecurity.requestMap.className = 'com.dss.RequestMap'
 grails.plugins.springsecurity.securityConfigType = SecurityConfigType.Requestmap
+//grails.plugins.springsecurity.userLookup.usernamePropertyName='com.dss.User.employee.email'
+grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'username'
+
+//grails mail plugin defaults
+//grails.mail.host = 'smtp.gmail.com';
+//grails.mail.port = 587;
+//grails.mail.username = 'dss.notnull@gmail.com';
+//grails.mail.password = 'iam@Dearwalk';
+//grails.mail.props = [
+//        'mail.smtps.auth': true,
+//        'mail.smtp.starttls.enable': true,
+//        'mail.smtps.socketFactory.class': 'javax.net.ssl.SSLSocketFactory',
+//        'mail.smtps.socketFactory.fallback': false,
+//
+//]
+
+grails {
+    mail {
+        host = "smtp.gmail.com"
+        port = 465
+        username = "dss.notnull@gmail.com"
+        password = "iam@Dearwalk"
+        props = ["mail.smtp.auth":"true",
+                "mail.smtp.socketFactory.port":"465",
+                "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                "mail.smtp.socketFactory.fallback":"false"]
+    } }
+
+grails.mail.default.from = "Deerwalk Salary System <dss.notnull@gmail.com>"
